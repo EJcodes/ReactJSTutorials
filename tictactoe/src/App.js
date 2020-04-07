@@ -6,7 +6,7 @@ class Square extends React.Component {
   render() {
     return(
     <button
-      classname="square"
+      className="square"
       onClick={() => this.props.onClick()}
       >
         {this.props.value}
