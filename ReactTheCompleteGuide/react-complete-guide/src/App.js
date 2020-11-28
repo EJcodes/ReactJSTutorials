@@ -36,7 +36,8 @@ class App extends Component {
   }
 
   togglePersonHandler = () => {
-
+    const doesShow = this.state.showPersons;
+    this.setState({showPersons: !doesShow});
   }
 
   render() {
@@ -54,7 +55,7 @@ class App extends Component {
         <p>This is really is working!!!</p>
         <button
         style={btnStyle}
-        onClick={this.togglePersonsHandler}>Switch Name</button>
+        onClick={this.togglePersonHandler}>Switch Name</button>
         {this.state.showPersons ?
           <div >
           <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
