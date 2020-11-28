@@ -16,9 +16,19 @@ class App extends Component {
     // Dont do this: this.state.persons[0].name="Evan";
     this.setState( {
       persons: [
-        { name: newName, age: 28 },
+        { name: 'Max', age: 28 },
         {name: 'Manu', age: 29 },
         {name: 'Stephanie', age: 27 }
+      ]
+    } )
+  }
+
+  nameChangeHandler = (event) =>{
+    this.setState( {
+      persons: [
+        { name: newName, age: 28 },
+        { name: 'Manu', age: 29},
+        { name: 'Stephanie', age: 27}
       ]
     } )
   }
