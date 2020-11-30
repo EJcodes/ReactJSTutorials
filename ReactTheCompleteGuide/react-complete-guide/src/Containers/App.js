@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Person from '../Components/Persons/Persons';
 import '../Containers/App.css';
 
+
 class App extends Component {
   state={
     persons:[
@@ -41,20 +42,24 @@ class App extends Component {
   }
 
   render() {
-    const btnStyle ={
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer' 
-    };
+    let persons = null;
+    let btnClass ='';
+
+    if( this.state.showPersons ) {
+      persons = (
+        <div>
+          <Person person={this.state.persons} 
+          clicked={this.deletePersonHandler} 
+          changed={this.nameChangedHandler} />
+        </div>
+      );
+    }
 
     return (
       <div className="App">
         <h1>Hi, I'm a react App</h1>
         <p>This is really is working!!!</p>
         <button
-        style={btnStyle}
         onClick={this.togglePersonHandler}>Switch Name</button>
         {this.state.showPersons ?
           <div >
