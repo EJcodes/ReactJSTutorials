@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Person from '../Components/Persons/Persons';
+import Person from '../Components/Persons/Person/Person';
+import Persons from '../Components/Persons/Persons'
 import '../Containers/App.css';
 
 
@@ -48,7 +49,7 @@ class App extends Component {
     if( this.state.showPersons ) {
       persons = (
         <div>
-          <Person person={this.state.persons} 
+          <Persons person={this.state.persons} 
           clicked={this.deletePersonHandler} 
           changed={this.nameChangedHandler} />
         </div>
