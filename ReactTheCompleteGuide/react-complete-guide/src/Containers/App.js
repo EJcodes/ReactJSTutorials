@@ -49,12 +49,15 @@ class App extends Component {
     if( this.state.showPersons ) {
       persons = (
         <div>
-          <Persons person={this.state.persons} 
-          clicked={this.deletePersonHandler} 
-          changed={this.nameChangedHandler} />
+          {this.state.persons.map(person => {
+            return <Person 
+              name={person.name}
+             age={person.age}/>
+          })}
         </div>
       );
     }
+
 
     return (
       <div className="App">
@@ -62,16 +65,7 @@ class App extends Component {
         <p>This is really is working!!!</p>
         <button
         onClick={this.togglePersonHandler}>Switch Name</button>
-        {this.state.showPersons ?
-          <div >
-          <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-          <Person name={this.state.persons[1].name} 
-          age={this.state.persons[1].age} 
-          click={this.switchNameHandler.bind(this, 'Evan')}
-          changed={this.nameChangeHandler}
-          >My Hobbies: racing</Person>
-          <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
-        </div> : null }
+        {persons}
       </div>
     
     );
